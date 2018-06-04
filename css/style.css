@@ -88,7 +88,7 @@ img {
 
 @media screen and (max-width: 720px) {
     #container {
-        flex-direction: column; /*dzieci ustawiają się pod sobą*/
+        flex-direction: column;
     }
     #taskInput {
         width: 100%;
@@ -98,6 +98,9 @@ img {
     }
     #removeFinishedTasksButton {
         margin-left: 30%;
+    }
+    #allTask, li {
+        margin-left: 10px;
     }
 
 }

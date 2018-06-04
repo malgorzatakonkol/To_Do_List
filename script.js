@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var removeButton = document.querySelector("#removeFinishedTasksButton");
     var list = document.querySelector("#taskList");
     var result = document.querySelector("#counter");
-    var number = 0; //local variable that holds the number of tasks
-    result.innerHTML = number;
+    var number = 0; //zmienna, która przetrzymuje ilośc zadań
+    result.innerHTML = number; //wartośc początkowa w div'ie
 
 
 
-    //counting function
+    //funkcja zliczająca
 
     function countingTask() {
         var liListLenght = document.querySelectorAll("li").length;
@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         result.innerHTML = number;
     }
 
-    //adding elements to the list
+    //dodanie elementów do listy
     function addTask() {
-        var inputText = document.querySelector("#taskInput").value;
+        var inputText = document.querySelector("#taskInput").value; //text z inputa
 
 
         if (inputText.length >= 5 && inputText.length <= 100) {
@@ -35,25 +35,25 @@ document.addEventListener("DOMContentLoaded", function () {
             completeButton.setAttribute("id", "completeButton");
             node.append(completeButton);
             list.appendChild(node);
-            document.querySelector("#taskInput").value = "";
+            document.querySelector("#taskInput").value = ""; //zerowanie textu z inputa
 
 
-            //function removes the task
+            //funkcja usuwająca zadanie
             function deleteTask() {
                 this.parentElement.remove();
                 console.log(this.parentElement, "test");
-                countingTask()
+                countingTask() //funkcja zlicza za każdym razem gdy zmeni sie cos w liscie
             }
 
             var deleteButtonLocalisation = document.querySelectorAll("#deleteButton");
             deleteButtonLocalisation[deleteButtonLocalisation.length - 1].addEventListener("click", deleteTask);
 
 
-            //color changing function
+            //funkcja zmieniająca kolor
             function changeColor() {
                 console.log("test");
                 this.parentElement.classList.toggle("textColor");
-                countingTask()
+                countingTask()  //funkcja zlicza za każdym razem gdy zmeni sie cos w liscie
             }
 
             var completeButtonLocalisation = document.querySelectorAll("#completeButton");
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-            countingTask()
+            countingTask()  //funkcja zlicza za każdym razem gdy zmeni sie cos w liscie
 
 
         }
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     addButton.addEventListener("click", addTask);
 
-    //function that removes all completed tasks (in red)
+    //funkcja usuwająca wszystkie zakończone zadania (na czerwono)
     function removeAllTask() {
         var doneTasks = document.querySelectorAll(".textColor");
         for (var i=0; i<doneTasks.length; i++){
